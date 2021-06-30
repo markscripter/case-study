@@ -1,0 +1,41 @@
+{
+    "stops": [
+        {
+            "stop_id": 41215,
+            "latitude": 44.858466,
+            "longitude": -93.305064,
+            "description": "American Blvd & Morgan Circle"
+        }
+    ],
+    "alerts": [],
+    "departures": [
+        {
+            "actual": false,
+            "trip_id": "18706906-JUN21-MVS-BUS-Weekday-01",
+            "stop_id": 41215,
+            "departure_text": "9:38",
+            "departure_time": 1624934280,
+            "description": "Ltd Stop / Norm Coll / Knox P&R",
+            "route_id": "535",
+            "route_short_name": "535",
+            "direction_id": 1,
+            "direction_text": "SB",
+            "terminal": "D",
+            "schedule_relationship": "Scheduled"
+        },
+        {
+            "actual": false,
+            "trip_id": "18706908-JUN21-MVS-BUS-Weekday-01",
+            "stop_id": 41215,
+            "departure_text": "10:36",
+            "departure_time": 1624937760,
+            "description": "Ltd Stop / S Bloom TC / Knox P&R",
+            "route_id": "535",
+            "route_short_name": "535",
+            "direction_id": 1,
+            "direction_text": "SB",
+            "terminal": "B",
+            "schedule_relationship": "Scheduled"
+        }
+    ]
+}

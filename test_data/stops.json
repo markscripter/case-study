@@ -1,0 +1,41 @@
+{
+    "stops": [
+        {
+            "stop_id": 41215,
+            "latitude": 44.858466,
+            "longitude": -93.305064,
+            "description": "American Blvd & Morgan Circle"
+        }
+    ],
+    "alerts": [],
+    "departures": [
+        {
+            "actual": true,
+            "trip_id": "18707245-JUN21-MVS-BUS-Weekday-01",
+            "stop_id": 41215,
+            "departure_text": "7 Min",
+            "departure_time": 1624972666,
+            "description": "Bryant-Penn/Southown/82St-35W TC",
+            "route_id": "4",
+            "route_short_name": "4",
+            "direction_id": 1,
+            "direction_text": "SB",
+            "terminal": "P",
+            "schedule_relationship": "Scheduled"
+        },
+        {
+            "actual": false,
+            "trip_id": "18706868-JUN21-MVS-BUS-Weekday-01",
+            "stop_id": 41215,
+            "departure_text": "8:35",
+            "departure_time": 1624973700,
+            "description": "Ltd Stop / Norm Coll / 94St - James",
+            "route_id": "535",
+            "route_short_name": "535",
+            "direction_id": 1,
+            "direction_text": "SB",
+            "terminal": "C",
+            "schedule_relationship": "Scheduled"
+        }
+    ]
+}

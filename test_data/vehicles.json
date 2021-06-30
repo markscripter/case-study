@@ -1,0 +1,40 @@
+[
+    {
+        "trip_id": "18706905-JUN21-MVS-BUS-Weekday-01",
+        "direction_id": 1,
+        "direction": "SB",
+        "location_time": 1624931785,
+        "route_id": "535",
+        "terminal": "A",
+        "latitude": 44.89177,
+        "longitude": -93.27576,
+        "bearing": 225,
+        "odometer": 0,
+        "speed": 22
+    },
+    {
+        "trip_id": "18706906-JUN21-MVS-BUS-Weekday-01",
+        "direction_id": 1,
+        "direction": "SB",
+        "location_time": 1624931786,
+        "route_id": "535",
+        "terminal": "D",
+        "latitude": 44.974,
+        "longitude": -93.27004,
+        "bearing": 90,
+        "odometer": 0,
+        "speed": 2
+    },
+    {
+        "trip_id": "18706941-JUN21-MVS-BUS-Weekday-01",
+        "direction_id": 0,
+        "direction": "NB",
+        "location_time": 1624931781,
+        "route_id": "535",
+        "latitude": 44.82885,
+        "longitude": -93.33303,
+        "bearing": 45,
+        "odometer": 0,
+        "speed": 0
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "place_code": "2S3A",
+        "description": "2nd St and 3rd Ave"
+    },
+    {
+        "place_code": "MA4S",
+        "description": "Marquette Ave and 4th St"
+    },
+    {
+        "place_code": "MA8S",
+        "description": "Marquette Ave and 8th St"
+    }
+]
