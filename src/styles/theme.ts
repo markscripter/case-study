@@ -1,18 +1,21 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
-export const DRAWER_WIDTH = '300px'
+export const DRAWER_WIDTH = '224px'
 
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#556cd6',
+            light: "#8632E6",
+            main: '#5932E6',
+            dark: '#020314',
         },
         secondary: {
-            main: '#19857b',
+            light: "#BEF202",
+            main: '#88C425',
         },
         error: {
-            main: red.A400,
+            main: "#e33371",
+            dark: "#dc004e"
         },
         background: {
             default: '#fff',

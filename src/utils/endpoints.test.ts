@@ -14,13 +14,13 @@ import {
     Vehicle
 } from './endpoints'
 
-import agenciesData from '../test_data/agencies.json'
-import routesData from '../test_data/routes.json'
-import directionsData from '../test_data/directions.json'
-import placeCodesData from '../test_data/place-codes.json'
-import stopsData from '../test_data/stops.json'
-import stopsByPlaceCodeData from '../test_data/stops-by-placecode.json'
-import vehicleData from '../test_data/vehicles.json'
+import agenciesData from '../../test-utils/test_data/agencies.json'
+import routesData from '../../test-utils/test_data/routes.json'
+import directionsData from '../../test-utils/test_data/directions.json'
+import placeCodesData from '../../test-utils/test_data/place-codes.json'
+import stopsData from '../../test-utils/test_data/stops.json'
+import stopsByPlaceCodeData from '../../test-utils/test_data/stops-by-placecode.json'
+import vehicleData from '../../test-utils/test_data/vehicles.json'
 
 declare let global: { fetch: {} };
 
@@ -34,19 +34,23 @@ function mockFetch<T>(data: T) {
     })
 }
 
+function mockFetchError() {
+    global.fetch = jest.fn().mockImplementationOnce(() => {
+        return Promise.resolve({
+            ok: false,
+            status: 500,
+            statusText: 'Server Error'
+        })
+    })
+}
+
 describe('endpoints', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     })
     describe('getAgencies', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getAgencies()
             } catch(error) {
@@ -61,13 +65,7 @@ describe('endpoints', () => {
     })
     describe('getRoutes', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getRoutes()
             } catch(error) {
@@ -82,13 +80,7 @@ describe('endpoints', () => {
     })
     describe('getDirections', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getDirections("901")
             } catch(error) {
@@ -103,13 +95,7 @@ describe('endpoints', () => {
     })
     describe('getPlaceCodes', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getPlaceCodes("901", 1)
             } catch(error) {
@@ -124,13 +110,7 @@ describe('endpoints', () => {
     })
     describe('getStop', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getStop(41215)
             } catch(error) {
@@ -145,13 +125,7 @@ describe('endpoints', () => {
     })
     describe('getStopByPlaceCode', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getStopByPlaceCode("901", 1, "AMMO")
             } catch(error) {
@@ -166,13 +140,7 @@ describe('endpoints', () => {
     })
     describe('getVehicles', () => {
         it('throws an error if the server has a problem', async () => {
-            global.fetch = jest.fn().mockImplementationOnce(() => {
-                return Promise.resolve({
-                    ok: false,
-                    status: 500,
-                    statusText: 'Server Error'
-                })
-            })
+            mockFetchError()
             try {
                 await getVehicles("901")
             } catch(error) {

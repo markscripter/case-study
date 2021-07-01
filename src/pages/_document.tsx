@@ -30,6 +30,7 @@ class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
                     <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" as="font" type="font/woff2" crossOrigin="anonymous" />
                     <meta name="theme-color" content={theme.palette.primary.main} />
                 </Head>

@@ -27,8 +27,6 @@ type MenuProps = {
     children?: JSX.Element | JSX.Element[]
 }
 
-export const menuId = "main-menu"
-
 export default function Menu({ isOpen, onMenuClose }: MenuProps) {
     const classes = useStyles()
     const drawerRef = useRef<HTMLDivElement>(null)

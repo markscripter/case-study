@@ -1,25 +1,29 @@
 import { useState, MouseEvent, KeyboardEvent } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import Header from './header'
 import Menu from './menu'
+import Footer from './footer'
 import { DRAWER_WIDTH } from '../styles/theme'
-
-export const siteDescription = 'Cast Study: NexTrip'
+import { PAGE_DATA } from '../utils/constants'
 
 const useStyles = makeStyles((theme) => ({
     container: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        height: '100vh'
     },
     disclaimer: {
         fontSize: '1em'
     },
     content: {
         flexGrow: 1,
+        display: "flex",
+        flexDirection: "column",
         padding: theme.spacing(3),
         width: '100%',
+        height: '100%',
         margin: 0,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
@@ -34,7 +38,10 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-}));
+    mainContent: {
+        marginBottom: 'auto'
+    }
+}))
 
 type LayoutProps = {
     children: JSX.Element|JSX.Element[],
@@ -42,7 +49,7 @@ type LayoutProps = {
 }
 
 export default function Layout({ children, title }: LayoutProps) {
-    const classes = useStyles();
+    const classes = useStyles()
     const [isOpen, setIsOpen] = useState<boolean|null>(null)
 
     const handleOpenMenu = (state: boolean) => {
@@ -56,17 +63,15 @@ export default function Layout({ children, title }: LayoutProps) {
     return (
         <div className={classes.container}>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content={siteDescription} />
+                <title>{PAGE_DATA.siteDescription}</title>
+                <meta name="description" content={PAGE_DATA.siteDescription} />
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
             </Head>
             <Header key='header' title={title} isOpen={isOpen} onMenuOpen={handleOpenMenu} />
             <Menu key='menu' isOpen={isOpen} onMenuClose={handleCloseMenu} />
             <div className={`${classes.content} ${isOpen ? classes.contentShift : ''}`}>
-                <main>{children}</main>
-                <footer>
-                    <p className={classes.disclaimer}>&copy; 2021 / Mark Scripter</p>
-                </footer>
+                <main className={classes.mainContent}>{children}</main>
+                <Footer />
             </div>
         </div>
     )
