@@ -2,19 +2,26 @@ import { useCallback, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
-import {  makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import { DRAWER_WIDTH } from '../styles/theme'
+import { PAGE_DATA } from '../utils/constants'
 
 const useStyles = makeStyles((theme) => ({
     header: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
+        borderBottom: `2px solid ${theme.palette.primary.main}`,
         ...theme.mixins.toolbar
     },
+    title: {
+        marginLeft: theme.spacing(3),
+        fontSize: "1rem",
+        color: theme.palette.primary.main,
+    },
     content: {
-        flexGrow: 1
+        flexGrow: 1 
     },
     paper: {
         width: DRAWER_WIDTH
@@ -23,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
 
 type MenuProps = {
     isOpen: boolean | null | undefined,
-    onMenuClose: (isClosed: boolean) => void,
+    onMenuChange: (isOpen: boolean) => void,
     children?: JSX.Element | JSX.Element[]
 }
 
-export default function Menu({ isOpen, onMenuClose }: MenuProps) {
+export default function Menu({ isOpen, onMenuChange }: MenuProps) {
     const classes = useStyles()
     const drawerRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLParagraphElement>(null)
@@ -35,10 +42,10 @@ export default function Menu({ isOpen, onMenuClose }: MenuProps) {
     const handleKeyUp = useCallback((event: KeyboardEvent) => {
         if (event?.key === "Escape") {  
             if (drawerRef?.current?.contains(event?.target as Node)) { // assert event.target as Node for contains
-                onMenuClose(true)
+                onMenuChange(false)
             }
         }
-    }, [onMenuClose])
+    }, [onMenuChange])
 
     useEffect(() => {
         if (isOpen) {
@@ -55,11 +62,11 @@ export default function Menu({ isOpen, onMenuClose }: MenuProps) {
     }, [isOpen])
 
     return (
-        <div ref={drawerRef}>
+        <div className='menu' ref={drawerRef}>
             <Drawer variant='persistent' anchor='left' open={isOpen || false} classes={{ paper: classes.paper}}>
                 <div className={classes.header}>
-                    <p ref={headerRef} tabIndex={-1}>Navigation</p>
-                    <IconButton onClick={() => onMenuClose(true)}>
+                    <h2 ref={headerRef} tabIndex={-1} className={classes.title}>{PAGE_DATA.menuTitle}</h2>
+                    <IconButton className="menu-close-button" onClick={() => onMenuChange(false)} color="primary">
                         <ChevronLeftIcon />
                     </IconButton>
                 </div>

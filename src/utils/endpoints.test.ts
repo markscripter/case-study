@@ -6,12 +6,6 @@ import {
     getStop,
     getStopByPlaceCode,
     getVehicles,
-    Agency,
-    Route,
-    Direction,
-    PlaceCodes,
-    NexTripResult,
-    Vehicle
 } from './endpoints'
 
 import agenciesData from '../../test-utils/test_data/agencies.json'
@@ -21,28 +15,7 @@ import placeCodesData from '../../test-utils/test_data/place-codes.json'
 import stopsData from '../../test-utils/test_data/stops.json'
 import stopsByPlaceCodeData from '../../test-utils/test_data/stops-by-placecode.json'
 import vehicleData from '../../test-utils/test_data/vehicles.json'
-
-declare let global: { fetch: {} };
-
-function mockFetch<T>(data: T) {
-    global.fetch = jest.fn(() => {
-        return Promise.resolve({
-            ok: true,
-            status: 200,
-            json: () => Promise.resolve(data)
-        })
-    })
-}
-
-function mockFetchError() {
-    global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.resolve({
-            ok: false,
-            status: 500,
-            statusText: 'Server Error'
-        })
-    })
-}
+import { mockFetch, mockFetchError } from '../../test-utils/mocks'
 
 describe('endpoints', () => {
     beforeEach(() => {

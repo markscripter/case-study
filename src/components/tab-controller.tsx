@@ -3,12 +3,6 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import TabPanel from './tab-panel'
 
-export async function getStaticProps() {
-    return {
-        props: {}
-    }
-}
-
 type PanelObject = {
     id: number,
     label: string,
@@ -27,10 +21,10 @@ export default function TabController({ panelObjects }: TabControllerProps) {
     }
 
     return (
-        <div>
+        <div className="tab-controller">
             <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary">
                 {
-                    panelObjects.map((panel, index) => (
+                    panelObjects.map(panel => (
                         <Tab key={panel.id} label={panel.label} />
                     ))
                 }

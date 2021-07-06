@@ -17,7 +17,7 @@ export default function TabPanel({ id, children, hidden }: TabPanelProps) {
     const classes = useStyles()
 
     return (
-        <div role='tabpanel' aria-labelledby={id.toString()} tabIndex={0} hidden={hidden} className={classes.panel}>
+        <div role='tabpanel' aria-labelledby={id.toString()} tabIndex={0} hidden={hidden} className={`tab-panel ${classes.panel}`}>
             {children}
         </div>
     )

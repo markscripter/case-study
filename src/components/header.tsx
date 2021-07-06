@@ -2,11 +2,11 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import IconButton, { IconButtonTypeMap,  } from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
-import { fade, makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import DirectionsTransitIcon from '@material-ui/icons/DirectionsTransit'
+import { makeStyles } from '@material-ui/core/styles'
 import { DRAWER_WIDTH } from '../styles/theme'
 import { useEffect } from 'react'
 
@@ -49,11 +49,10 @@ const useStyles = makeStyles((theme) => ({
 type HeaderProps = {
     title: string,
     isOpen: boolean | null | undefined,
-    onMenuOpen: (isOpen: boolean) => void,
-    children?: JSX.Element | JSX.Element[]
+    onMenuChange: (isOpen: boolean) => void
 }
 
-export default function Header({ title, onMenuOpen, isOpen }: HeaderProps) {
+export default function Header({ title, onMenuChange, isOpen }: HeaderProps) {
     const classes = useStyles()
     const menuIconRef = useRef<HTMLButtonElement>(null)
 
@@ -69,17 +68,18 @@ export default function Header({ title, onMenuOpen, isOpen }: HeaderProps) {
     }, [isOpen])
     
     return (
-        <div className={`${classes.appBar} ${isOpen ? classes.appBarShift : ''}`}>
+        <div className={`header ${classes.appBar} ${isOpen ? classes.appBarShift : ''}`}>
             <AppBar position="static" color="primary">
                 <Toolbar>
                     <IconButton
                         edge="start"
                         color="inherit"
-                        onClick={() => onMenuOpen(true)}
+                        onClick={() => onMenuChange(true)}
                         aria-label="Menu"
                         aria-haspopup="true"
                         aria-expanded={isOpen ? true : false}
                         ref={menuIconRef}
+                        className='menu-button'
                     >
                         <MenuIcon color="inherit" />
                     </IconButton>

@@ -1,4 +1,4 @@
-import { useState, MouseEvent, KeyboardEvent } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import { makeStyles } from '@material-ui/core/styles'
 import Header from './header'
@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         display: "flex",
         flexDirection: "column",
-        padding: theme.spacing(3),
         width: '100%',
         height: '100%',
         margin: 0,
@@ -39,7 +38,10 @@ const useStyles = makeStyles((theme) => ({
         }),
     },
     mainContent: {
-        marginBottom: 'auto'
+        width: '100%',
+        maxWidth: '700px',
+        margin: '0 0 auto 0',
+        padding: theme.spacing(3),
     }
 }))
 
@@ -50,25 +52,21 @@ type LayoutProps = {
 
 export default function Layout({ children, title }: LayoutProps) {
     const classes = useStyles()
-    const [isOpen, setIsOpen] = useState<boolean|null>(null)
+    const [isOpen, setIsOpen] = useState<boolean|null>()
 
-    const handleOpenMenu = (state: boolean) => {
-        setIsOpen(true)
-    }
-
-    const handleCloseMenu = (state: boolean) => {
-        setIsOpen(false)
+    const onMenuChange = (state: boolean) => {
+        setIsOpen(state)
     }
 
     return (
-        <div className={classes.container}>
+        <div className={`layout ${classes.container}`}>
             <Head>
                 <title>{PAGE_DATA.siteDescription}</title>
                 <meta name="description" content={PAGE_DATA.siteDescription} />
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
             </Head>
-            <Header key='header' title={title} isOpen={isOpen} onMenuOpen={handleOpenMenu} />
-            <Menu key='menu' isOpen={isOpen} onMenuClose={handleCloseMenu} />
+            <Header key='header' title={title} isOpen={isOpen} onMenuChange={onMenuChange} />
+            <Menu key='menu' isOpen={isOpen} onMenuChange={onMenuChange} />
             <div className={`${classes.content} ${isOpen ? classes.contentShift : ''}`}>
                 <main className={classes.mainContent}>{children}</main>
                 <Footer />

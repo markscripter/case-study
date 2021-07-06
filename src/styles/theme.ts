@@ -1,8 +1,22 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import {
+    createMuiTheme
+} from '@material-ui/core/styles';
 
 export const DRAWER_WIDTH = '224px'
 
 const theme = createMuiTheme({
+    overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                html: {
+                    WebkitFontSmoothing: 'auto',
+                },
+                body: {
+                    color: '#020314'
+                }
+            },
+        },
+    },
     palette: {
         primary: {
             light: "#8632E6",
@@ -18,7 +32,7 @@ const theme = createMuiTheme({
             dark: "#dc004e"
         },
         background: {
-            default: '#fff',
+            default: '#fff'
         },
     },
     spacing: 4

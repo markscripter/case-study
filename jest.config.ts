@@ -35,7 +35,9 @@ export default {
     "/coverage/",
     "/public/",
     "/styles/",
-    "/test-utils/"
+    "/test-utils/",
+    "_app.tsx",
+    "_document.tsx",
   ],
 
   // Indicates which provider should be used to instrument code for coverage

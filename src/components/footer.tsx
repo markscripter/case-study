@@ -3,9 +3,11 @@ import { PAGE_DATA } from '../utils/constants'
 
 const useStyles = makeStyles((theme) => ({
     footer: {
+        padding: theme.spacing(4, 3),
+        color: '#fff',
+        backgroundColor: theme.palette.primary.main,
         flex: "0 0 auto",
-        color: theme.palette.primary.light,
-        fontSize: "0.6rem",
+        fontSize: "1rem",
         textAlign: "right"
     }
 }))
