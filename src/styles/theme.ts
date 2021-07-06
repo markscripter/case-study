@@ -1,10 +1,10 @@
 import {
-    createMuiTheme
+    createTheme
 } from '@material-ui/core/styles';
 
 export const DRAWER_WIDTH = '224px'
 
-const theme = createMuiTheme({
+const theme = createTheme({
     overrides: {
         MuiCssBaseline: {
             '@global': {

@@ -30,8 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 type MenuProps = {
     isOpen: boolean | null | undefined,
-    onMenuChange: (isOpen: boolean) => void,
-    children?: JSX.Element | JSX.Element[]
+    onMenuChange: (isOpen: boolean) => void
 }
 
 export default function Menu({ isOpen, onMenuChange }: MenuProps) {

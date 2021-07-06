@@ -12,11 +12,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-type FooterProps = {
-    children?: JSX.Element | JSX.Element[]
-}
-
-export default function Footer({ }: FooterProps) {
+export default function Footer() {
     const classes = useStyles()
     return (
         <footer className={classes.footer}>

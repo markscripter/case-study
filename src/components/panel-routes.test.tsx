@@ -5,7 +5,7 @@ import { PAGE_DATA } from '../utils/constants'
 
 jest.mock('./routes', () => {
     // eslint-disable-next-line react/display-name
-    return { __esModule: true, default: () => (<div>Route</div>) }
+    return { __esModule: true, default: () => (<div className='routes'>Route</div>) }
 })
 
 describe('RoutesPanel', () => {

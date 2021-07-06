@@ -1,5 +1,5 @@
 import React from 'react'
-import { getByText, isInaccessible, getRoles } from '@testing-library/dom'
+import { getByText } from '@testing-library/dom'
 import { render } from '../../test-utils'
 import TabPanel from './tab-panel'
 

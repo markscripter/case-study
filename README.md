@@ -15,9 +15,9 @@ yarn install
 ### Unit Tests (Jest)
 
 ```bash
-npm run test:jest
+npm run test
 # or
-yarn test:jest
+yarn test
 ```
 
 ## Environments
@@ -52,4 +52,10 @@ yarn start
 
 ## Assumptions
 
-- Material UI library would allow for more themed items.
+- Material UI library would allow for easier testing of re-usable components.
+
+- NexTrip endpoints should be consumed client side.
+
+- Being able to search by Stop ID would be benefitial to the app.
+
+- Accessibility is highly important.

@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "yarn test:jest && yarn test:cypress",
-    "test:jest": "jest",
-    "test:cypress": "cypress"
+    "test": "jest"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
@@ -30,7 +28,6 @@
     "@types/node": "^15.12.5",
     "@types/react": "17.0.11",
     "babel-jest": "^27.0.6",
-    "cypress": "^7.6.0",
     "eslint": "^7.29.0",
     "eslint-config-next": "^11.0.1",
     "jest": "^27.0.6",

@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useRoutes, useDirections, usePlaceCodes, useStopByPlaceCodes } from '../utils/hooks'
 import StopListings from './stop-listing'
 import { useRouter } from 'next/router'
-import { route } from 'next/dist/next-server/server/router'
+
 const useStyles = makeStyles((theme) => ({
     skeleton: {
         margin: theme.spacing(4, 0),
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column'
     },
     formControl: {
-        margin: theme.spacing(0, 0, 4, 0)
+        margin: `${theme.spacing(0, 0, 4, 0)} !important`
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -114,6 +114,9 @@ export default function Routes() {
                         id="route-select"
                         value={selectedRoute}
                         onChange={handleRouteChange}
+                        inputProps={{
+                            "data-testid": "routes"
+                        }}
                         label="Routes"
                     >
                     {
@@ -130,13 +133,16 @@ export default function Routes() {
             {
                 selectedRoute !== '' && directionsData?.data.length > 0 && (
                     <FormControl className={classes.formControl} variant="outlined">
-                        <InputLabel id="directions-label">Direction</InputLabel>
+                        <InputLabel id="directions-label">Directions</InputLabel>
                         <Select
                             labelId="directions-label"
                             id="directions-select"
                             value={selectedDirection}
                             onChange={handleDirectionChange}
-                            label="Direction"
+                            label="Directions"
+                            inputProps={{
+                                "data-testid": "directions"
+                            }}
                         >
                         {
                             directionsData.data.map(({direction_id, direction_name}: Direction) => {
@@ -160,6 +166,9 @@ export default function Routes() {
                             value={selectedPlaceCode}
                             onChange={handlePlaceCodeChange}
                             label="Places"
+                            inputProps={{
+                                "data-testid": "places"
+                            }}
                         >
                         {
                             placeCodesData.data.map(({place_code, description}: PlaceCode) => {

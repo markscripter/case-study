@@ -1,6 +1,5 @@
 import React from 'react'
-import { getByText } from '@testing-library/dom'
-import { render } from '../../test-utils'
+import { render, getByText } from '../../test-utils'
 import Footer from './footer'
 import { PAGE_DATA } from '../utils/constants'
 
